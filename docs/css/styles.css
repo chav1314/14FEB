@@ -1,0 +1,180 @@
+/* ===========================
+   RESET Y ESTILOS GLOBALES
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: #FCE4EC; /* Rosado pastel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* ===========================
+           PANTALLAS
+  =========================== */
+  .screen {
+    display: none;
+    width: 100%;
+    height: 100%;
+    /* Alineación central */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .screen.active {
+    display: flex;
+  }
+  
+  /* PANTALLA 1 */
+  #screen1 h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  #buttonContainer {
+    position: relative;
+    width: 300px;
+    height: 120px;
+  }
+  #buttonContainer button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    position: absolute;
+    background: #F8BBD0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  #buttonContainer button:hover {
+    background: #F48FB1;
+  }
+  #btnSi {
+    left: 30px;
+    top: 40px;
+  }
+  #btnNo {
+    left: 150px;
+    top: 40px;
+  }
+  
+  /* PANTALLA 2 */
+  #screen2 h2 {
+    font-size: 2em;
+    color: #C2185B;
+  }
+  
+  /* PANTALLA 3: Carrusel Infinito */
+  .carousel-title {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    z-index: 2;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0 10px;
+    font-size: 2em;
+  }
+  .carousel {
+    width: 100vw;
+    height: 100vh;
+    background: #F8BBD0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Controlar el transform */
+  }
+  .slides {
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease;
+    width: max-content;
+  }
+  .slide {
+    width: 50vw;
+    height: 70vh;
+    margin: 0 2vw; /* total 54vw */
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #FCE4EC;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  .slide img,
+  .slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Animación Zoom In/Out para imágenes */
+  @keyframes scaleInOut {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    20% { transform: scale(1.1); opacity: 1; }
+    80% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0.5; }
+  }
+  .slide.active {
+    animation: scaleInOut 3s forwards;
+  }
+  
+  /* Overlay final en pantalla 3 */
+  .final-message {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    z-index: 3;
+    background: rgba(255, 192, 203, 0.9);
+    padding: 30px 20px;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .final-message.visible {
+    opacity: 1;
+  }
+  .final-text {
+    font-size: 2em;
+    color: #C2185B;
+    margin-bottom: 20px;
+  }
+  .final-buttons button {
+    font-size: 1.2em;
+    padding: 10px 30px;
+    border: none;
+    background: #F48FB1;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+  }
+  .final-buttons button:hover {
+    background: #F06292;
+  }
+  
+  /* PANTALLA 4 */
+  #screen4 h2 {
+    font-size: 2em;
+    color: #C2185B;
+    padding: 20px;
+    max-width: 600px;
+    background: #F8BBD0;
+    border-radius: 12px;
+  }
+  
